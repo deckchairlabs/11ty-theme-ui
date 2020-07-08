@@ -14,9 +14,9 @@ module.exports = (eleventy, options = defaultOptions) => {
             outputPath &&
             outputPath.endsWith('.html')
         ) {
+            // Check if we should inject root/global styles
             if (theme.useBodyStyles === true || (theme.styles && theme.styles.root)) {
                 const boxSizing = theme.useBorderBox === false ? undefined : 'border-box'
-
                 // Inject global styles
                 emotion.injectGlobal(sx({
                     '*': {
