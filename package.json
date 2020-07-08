@@ -21,6 +21,7 @@
         "@theme-ui/css": "^0.3.1",
         "@theme-ui/preset-base": "^0.3.0",
         "cross-env": "^7.0.2",
+        "htmlnano": "^0.2.5",
         "jsdom": "^16.2.2",
         "json5": "^2.1.3"
     },

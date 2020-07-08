@@ -1,9 +1,15 @@
 const themeUiPlugin = require('./eleventy/plugins/theme-ui.js')
+const transforms = require('./eleventy/transforms.js')
 
 module.exports = function (config) {
     // Plugins
     config.addPlugin(themeUiPlugin, {
         themePath: './theme'
+    })
+
+    // Transform
+    Object.keys(transforms).forEach((transformName) => {
+        config.addTransform(transformName, transforms[transformName])
     })
 
     config.addWatchTarget('./theme');
