@@ -1,0 +1,19 @@
+---
+layout: base
+---
+
+{% import "ui.njk" as ui %}
+
+{{ ui.button('Testing') }}
+
+<div class="{{ {
+    backgroundColor: 'red'
+} | sx }}">Box</div>
+
+<div class="{{ {
+    backgroundColor: 'red'
+} | sx }}">Box</div>
+
+<div class="{{ {
+    backgroundColor: ['red', 'blue']
+} | sx }}">Box</div>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html class="no-js" lang="{{ meta.lang }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{%- if title -%}{{ title }} | {{ meta.title }}{%- else -%}{{ meta.title }}{%- endif -%}</title>
+    </head>
+    <body>
+        <main>{{ content | safe }}</main>
+    </body>
+</html>
