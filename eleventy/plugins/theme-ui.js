@@ -43,8 +43,8 @@ module.exports = (eleventyConfig, options = defaultOptions) => {
         const variantStyles = cssx(get(theme, __themeKey + '.' + variant, get(theme, variant)))({ theme })
 
         const mergedStyles = {
-            ...cssx(baseStyles)({ theme }),
             ...variantStyles,
+            ...cssx(baseStyles)({ theme }),
             ...css
         }
 
