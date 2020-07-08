@@ -6,12 +6,8 @@
         <title>Eleventy with ThemeUI</title>
     </head>
     <body>
-        <header sx="{ variant: 'layout.header' }">
-            Header
-        </header>
+        {% include "header.njk" %}
         <main>{{ content | safe }}</main>
-        <footer sx="{ variant: 'layout.footer', padding: [2, 5] }">
-            Footer
-        </footer>
+        {% include "footer.njk" %}
     </body>
 </html>
