@@ -6,6 +6,12 @@
         <title>Eleventy with ThemeUI</title>
     </head>
     <body>
+        <header class="{{ { variant: 'layout.header' } | sx }}">
+            Header
+        </header>
         <main>{{ content | safe }}</main>
+        <footer class="{{ { variant: 'layout.footer' } | sx }}">
+            Footer
+        </footer>
     </body>
 </html>

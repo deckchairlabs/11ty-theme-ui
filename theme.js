@@ -4,9 +4,13 @@ module.exports = {
     ...baseTheme,
     layout: {
         header: {
-            backgroundColor: ['red', 'blue'],
+            backgroundColor: ['red', 'primary'],
             padding: [2, 3],
             color: 'white'
+        },
+        footer: {
+            backgroundColor: 'primary',
+            padding: 3
         }
     }
 }

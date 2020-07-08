@@ -1,13 +1,18 @@
+const path = require('path')
 const emotion = require('emotion')
 const createEmotionServer = require('create-emotion-server').default
 const { css: cssx, get } = require('@theme-ui/css')
 
 const defaultOptions = {
-    theme: {}
+    themePath: {}
 }
 
 module.exports = (eleventyConfig, options = defaultOptions) => {
-    const { theme } = options
+    const { themePath } = options
+
+    let theme = require(require.resolve(themePath, {
+        paths: [process.cwd()]
+    }))
 
     eleventyConfig.addTransform('injectStyles', function (content, outputPath) {
         if (outputPath && outputPath.endsWith('.html')) {

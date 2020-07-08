@@ -1,10 +1,9 @@
 const themeUiPlugin = require('./eleventy/plugins/theme-ui.js')
-const theme = require('./theme')
 
 module.exports = function (config) {
     // Plugins
     config.addPlugin(themeUiPlugin, {
-        theme
+        themePath: './theme'
     })
 
     config.addWatchTarget('./theme');
