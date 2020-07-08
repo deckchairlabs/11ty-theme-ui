@@ -49,7 +49,7 @@ module.exports = (eleventyConfig, options = defaultOptions) => {
                 })({ theme }))
             }
 
-            const dom = new JSDOM(content)
+            let dom = new JSDOM(content)
             const elements = dom.window.document.querySelectorAll('[sx]')
 
             elements.forEach(element => {
@@ -64,10 +64,16 @@ module.exports = (eleventyConfig, options = defaultOptions) => {
                 element.className = applyStyles(sxValue, cssValue)
             })
 
-            const html = dom.serialize()
-
             const emotionServer = createEmotionServer(emotion.cache)
-            return emotionServer.renderStylesToString(html)
+            const { html, css } = emotionServer.extractCritical(dom.serialize())
+
+            dom = new JSDOM(html)
+            const styleTag = dom.window.document.createElement('style')
+            styleTag.innerHTML = css
+
+            dom.window.document.head.append(styleTag)
+
+            return dom.serialize()
         }
 
         return content
