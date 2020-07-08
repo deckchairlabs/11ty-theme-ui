@@ -1,19 +1,6 @@
 ---
 layout: base
 ---
+<header class="{{ { variant: 'layout.header' } | sx }}">Header</header>
 
-{% import "ui.njk" as ui %}
-
-{{ ui.button('Testing') }}
-
-<div class="{{ {
-    backgroundColor: 'red'
-} | sx }}">Box</div>
-
-<div class="{{ {
-    backgroundColor: 'red'
-} | sx }}">Box</div>
-
-<div class="{{ {
-    backgroundColor: ['red', 'blue']
-} | sx }}">Box</div>
+<footer class="{{ { variant: 'layout.footer' } | sx }}">Footer</footer>

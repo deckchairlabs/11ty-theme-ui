@@ -1,11 +1,11 @@
 const pluginPWA = require('eleventy-plugin-pwa')
-const baseTheme = require('@theme-ui/preset-base')
 const markdownIt = require('markdown-it')
 const markdownItAnchor = require('markdown-it-anchor')
 
 const themeUiPlugin = require('./eleventy/plugins/theme-ui.js')
 const filters = require('./eleventy/filters.js')
 const transforms = require('./eleventy/transforms.js')
+const theme = require('./theme')
 
 const workboxOptions = {
     cacheId: 'lean',
@@ -22,7 +22,7 @@ module.exports = function (config) {
     // Plugins
     config.addPlugin(pluginPWA, workboxOptions)
     config.addPlugin(themeUiPlugin, {
-        theme: baseTheme.default
+        theme
     })
 
     // Filters
