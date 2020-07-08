@@ -1,24 +1,21 @@
 const emotion = require('emotion')
 const createEmotionServer = require('create-emotion-server').default
-const { css: sx, get } = require('@theme-ui/css')
+const { css: cssx, get } = require('@theme-ui/css')
 
 const defaultOptions = {
     theme: {}
 }
 
-module.exports = (eleventy, options = defaultOptions) => {
+module.exports = (eleventyConfig, options = defaultOptions) => {
     const { theme } = options
 
-    eleventy.addTransform('injectStyles', function (content, outputPath) {
-        if (
-            outputPath &&
-            outputPath.endsWith('.html')
-        ) {
+    eleventyConfig.addTransform('injectStyles', function (content, outputPath) {
+        if (outputPath && outputPath.endsWith('.html')) {
             // Check if we should inject root/global styles
             if (theme.useBodyStyles === true || (theme.styles && theme.styles.root)) {
                 const boxSizing = theme.useBorderBox === false ? undefined : 'border-box'
                 // Inject global styles
-                emotion.injectGlobal(sx({
+                emotion.injectGlobal(cssx({
                     '*': {
                         boxSizing,
                     },
@@ -36,12 +33,12 @@ module.exports = (eleventy, options = defaultOptions) => {
         return content
     })
 
-    eleventy.addFilter('sx', function (value, css = {}) {
+    eleventyConfig.addFilter('sx', function (value, css = {}) {
         const { variant, __themeKey, ...baseStyles } = value
-        const variantStyles = sx(get(theme, __themeKey + '.' + variant, get(theme, variant)))({ theme })
+        const variantStyles = cssx(get(theme, __themeKey + '.' + variant, get(theme, variant)))({ theme })
 
         const mergedStyles = {
-            ...sx(baseStyles)({ theme }),
+            ...cssx(baseStyles)({ theme }),
             ...variantStyles,
             ...css
         }

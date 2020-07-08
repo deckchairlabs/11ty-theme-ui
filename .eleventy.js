@@ -7,6 +7,8 @@ module.exports = function (config) {
         theme
     })
 
+    config.addWatchTarget('./theme');
+
     // Layouts
     config.addLayoutAlias('base', 'base.njk')
 

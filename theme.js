@@ -5,7 +5,8 @@ module.exports = {
     layout: {
         header: {
             backgroundColor: ['red', 'blue'],
-            padding: [2, 3]
+            padding: [2, 3],
+            color: 'white'
         }
     }
 }
