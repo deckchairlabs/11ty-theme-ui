@@ -6,8 +6,16 @@
         <title>Eleventy with ThemeUI</title>
     </head>
     <body>
-        {% include "header.njk" %}
-        <main>{{ content | safe }}</main>
-        {% include "footer.njk" %}
+        <div sx="{
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100vh'
+        }">
+            {% include "header.njk" %}
+            <main sx="{ padding: 3, flex: 1 }">
+                {{ content | safe }}
+            </main>
+            {% include "footer.njk" %}
+        </div>
     </body>
 </html>

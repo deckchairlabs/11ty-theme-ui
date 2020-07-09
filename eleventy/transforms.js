@@ -1,6 +1,6 @@
 const htmlnano = require('htmlnano')
 
-const preset = Object.assign(htmlnano.presets.max, {
+const preset = Object.assign(htmlnano.presets.safe, {
     removeRedundantAttributes: true
 })
 
@@ -16,6 +16,9 @@ module.exports = {
                 {
                     minifySvg: {
                         plugins: [{ removeViewBox: false }]
+                    },
+                    minifyCss: {
+                        preset: 'advanced'
                     }
                 },
                 preset

@@ -12,5 +12,11 @@ module.exports = {
             backgroundColor: 'primary',
             padding: 3
         }
+    },
+    buttons: {
+        primary: {
+            backgroundColor: 'primary',
+            color: 'white'
+        }
     }
 }
