@@ -1,4 +1,4 @@
-# 11ty-theme-ui
+# 11ty-theme-ui (experimental)
 Experiment integrating [ThemeUI](https://theme-ui.com/) with [11ty](https://www.11ty.dev/). This is very much a WIP, would love to have feature parity with ThemeUI eventually.
 
 ## TODO
