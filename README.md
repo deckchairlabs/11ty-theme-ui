@@ -15,7 +15,7 @@ Experiment integrating [ThemeUI](https://theme-ui.com/) with [11ty](https://www.
 - Automatic and pain free "critical" CSS
 - CSS is minified and optimised via cssnano for smallest payload size possible
 
-SX HTML attributes
+[SX](https://theme-ui.com/sx-prop) HTML attribute
 
 ```html
 <div sx="{ display: 'flex', flexDirection: 'row' }">
