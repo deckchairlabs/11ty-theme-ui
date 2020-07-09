@@ -14,7 +14,17 @@ module.exports = {
         }
     },
     buttons: {
+        default: {
+            appearance: 'none',
+            paddingY: 2,
+            paddingX: 3,
+            border: 'none',
+        },
         primary: {
+            appearance: 'none',
+            paddingY: 2,
+            paddingX: 3,
+            border: 'none',
             backgroundColor: 'primary',
             color: 'white'
         }

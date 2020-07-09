@@ -1,3 +1,5 @@
 {% macro button(variant = 'default') %}
-    <button sx="{ variant: '{{ variant }}', __themeKey: 'buttons' }">{{ caller() }}</button>
+    <button variant="buttons.{{ variant }}">
+        {{ caller() }}
+    </button>
 {% endmacro %}
