@@ -10,6 +10,7 @@ const defaultOptions = {
 
 const SX_ATTRIBUTE = 'sx'
 const CSS_ATTRIBUTE = 'css'
+const VARIANT_ATTRIBUTE = 'variant'
 
 module.exports = (eleventyConfig, options = defaultOptions) => {
     const { themePath } = options
@@ -50,18 +51,25 @@ module.exports = (eleventyConfig, options = defaultOptions) => {
             }
 
             let dom = new JSDOM(content)
-            const elements = dom.window.document.querySelectorAll('[sx]')
+            const elements = dom.window.document.querySelectorAll('[sx], [variant]')
 
             elements.forEach(element => {
                 const sxAttribute = element.getAttribute(SX_ATTRIBUTE)
                 const cssAttribute = element.getAttribute(CSS_ATTRIBUTE)
+                const variantAttribute = element.getAttribute(VARIANT_ATTRIBUTE)
 
                 const sxValue = sxAttribute ? JSON5.parse(sxAttribute.valueOf()) : {}
                 const cssValue = cssAttribute ? JSON5.parse(cssAttribute.valueOf()) : {}
+                const variantValue = variantAttribute ? variantAttribute.valueOf() : undefined
 
                 element.removeAttribute(SX_ATTRIBUTE)
                 element.removeAttribute(CSS_ATTRIBUTE)
-                element.className = applyStyles(sxValue, cssValue)
+                element.removeAttribute(VARIANT_ATTRIBUTE)
+
+                element.className = applyStyles({
+                    variant: variantValue,
+                    ...sxValue
+                }, cssValue)
             })
 
             const emotionServer = createEmotionServer(emotion.cache)
