@@ -29,7 +29,7 @@ Experiment integrating [ThemeUI](https://theme-ui.com/) with [11ty](https://www.
 </div>
 ```
 
-Variants as regular HTML attributes
+[Variants](https://theme-ui.com/guides/variants) as regular HTML attributes
 
 ```html
 <button variant="buttons.primary">Button</button>
@@ -37,7 +37,7 @@ Variants as regular HTML attributes
 <button class="css-s92abg">Button</button>
 ```
 
-"Components" as shortcodes
+[Components](https://theme-ui.com/components) as shortcodes
 
 ```njk
 {% button variant="primary" %}
