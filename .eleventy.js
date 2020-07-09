@@ -1,10 +1,16 @@
 const themeUiPlugin = require('./eleventy/plugins/theme-ui.js')
 const transforms = require('./eleventy/transforms.js')
+const shortcodes = require('./eleventy/shortcodes.js')
 
 module.exports = function (config) {
     // Plugins
     config.addPlugin(themeUiPlugin, {
         themePath: './theme'
+    })
+
+    // Shortcodes
+    Object.keys(shortcodes).forEach((shortcodeName) => {
+        config.addPairedShortcode(shortcodeName, shortcodes[shortcodeName])
     })
 
     // Transform

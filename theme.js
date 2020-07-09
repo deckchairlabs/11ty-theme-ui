@@ -13,6 +13,13 @@ module.exports = {
             padding: 3
         }
     },
+    text: {
+        heading: {
+            fontFamily: 'heading',
+            fontWeight: 'heading',
+            lineHeight: 'heading',
+        },
+    },
     buttons: {
         default: {
             appearance: 'none',

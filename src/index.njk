@@ -2,20 +2,48 @@
 layout: base
 ---
 
-{% import "ui.njk" as ui %}
-
-{% call ui.button('primary') %}
-    Macro Button
-{% endcall %}
+{% button %}
+    Shortcode
+{% endbutton %}
 
 <button variant="buttons.default">
-    Default Button
+    Attribute Default
 </button>
 
 <button variant="buttons.primary">
-    Primary Button
+    Attribute Primary
 </button>
 
-<button sx="{{ styles.button('primary') }}">Styles Function</button>
+<button sx="{{ styles.button('primary') }}">
+    Styles Function
+</button>
 
-<div sx="{ padding: [1, 3], bg: 'primary', color: 'background', marginTop: 5 }">Box</div>
+{% heading as="h1" %}
+    Heading h1
+{% endheading %}
+
+{% heading %}
+    Heading h2
+{% endheading %}
+
+{% heading as="h3" %}
+    Heading h3
+{% endheading %}
+
+{% heading as="h4" %}
+    Heading h4
+{% endheading %}
+
+{% heading as="h5" %}
+    Heading h5
+{% endheading %}
+
+{% heading as="h6" %}
+    Heading h6
+{% endheading %}
+
+{% for i in range(0, 5) -%}
+    <div sx="{ padding: {{ i }}, borderWidth: 1, borderStyle: 'solid', borderColor: 'text' }">
+        Padding {{ i }}
+    </div>
+{%- endfor %}
